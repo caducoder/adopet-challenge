@@ -1,10 +1,10 @@
 import LogoLight from '../../assets/logo-light.svg'
-import SideWave from '../../assets/side-wave.svg'
+import SideWave from '../../assets/right-wave.svg'
 import PetDraw from '../../assets/pets-draw.svg'
 import Button from '../../components/Button';
 import './Welcomepage.scss'
 
-function Welcomepage() {
+function Welcome() {
   return (
     <>
       <div className="main">
@@ -17,7 +17,7 @@ function Welcomepage() {
           </p>
           <div className="buttons">
             <Button to=''>Já tenho conta</Button>
-            <Button to=''>Quero me cadastrar</Button>
+            <Button to='/cadastro'>Quero me cadastrar</Button>
           </div>
 
         </div>
@@ -28,4 +28,4 @@ function Welcomepage() {
   );
 }
 
-export default Welcomepage;
+export default Welcome;
