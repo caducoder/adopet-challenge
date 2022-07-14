@@ -1,14 +1,53 @@
+@import '../../assets/variables';
+
 .top-left-wave {
-  position: fixed;
-  z-index: -1;
-  top: 0; left: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 22em;
 }
 
 .main-header {
   padding: 40px;
-  .nav{
+  position: absolute;
+
+  .nav {
     display: flex;
+    position: relative;
     align-items: center;
     gap: 60px;
+    z-index: 2;
+
+    .nav-logo {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: $medium-device) {
+  .top-left-wave {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 32em;
+  }
+
+  .main-header {
+    .nav {
+      .nav-logo {
+        display: block;
+        width: 128px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $large-device) {
+  .main-header {
+    .nav {
+      padding-left: 40px;
+    }
   }
 }

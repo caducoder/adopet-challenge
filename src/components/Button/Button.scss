@@ -1,0 +1,16 @@
+@import '../../assets/variables';
+
+.link-button {
+  background-color: $red;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid $blue;
+  color: #fff;
+  font-weight: 700;
+  width: 100%;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+
+  &:hover {
+    background-color: #FF9D9E;
+  }
+}

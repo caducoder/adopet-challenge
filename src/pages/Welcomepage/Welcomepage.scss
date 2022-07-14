@@ -1,0 +1,108 @@
+@import '../../assets/variables';
+
+.side-wave {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  width: 4em;
+}
+
+.pets-draw {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  margin: 20px 0 -25px;
+  padding-right: 10px;
+
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45% 0 0;
+  color: #fff;
+  text-align: center;
+  background-color: $blue;
+  min-height: 100vh;
+
+  .initial {
+    padding: 0 50px;
+    margin-bottom: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo-home {
+      width: 80%;
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 26px;
+      margin: 24px 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: $medium-device) {
+  .side-wave {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    width: 8em;
+  }
+  .main {
+    padding: 30% 0 0;
+    .initial {
+      padding: 0 250px !important;
+
+      .logo-home {
+        width: 100%;
+      }
+
+      .buttons {
+        padding: initial;
+      }
+    }
+  }
+  
+}
+
+@media only screen and (min-width: $large-device) {
+  .side-wave {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    width: 6em;
+  }
+  .main {
+    padding: 10% 0 0;
+    .initial {
+      padding: 0 250px !important;
+
+      .logo-home {
+        width: 60%;
+      }
+
+      p {
+        width: 488px;
+      }
+
+      .buttons {
+        width: 362px;
+      }
+    }
+  }
+}
