@@ -1,5 +1,6 @@
 import LogoDark from '../../assets/logo-dark.svg'
 import Paws from '../../assets/paws.svg'
+import {FaEyeSlash} from 'react-icons/fa'
 import './Register.scss'
 
 function Register() {
@@ -38,6 +39,7 @@ function Register() {
               placeholder='Crie uma senha' 
               id="pass" 
             />
+            <FaEyeSlash className='show-pass-icon'/>
           </div>
           <div className='field'>
             <label htmlFor="confirm-pass">Confirmar sua senha</label>
@@ -46,6 +48,7 @@ function Register() {
               placeholder='Repita a senha criada acima' 
               id="confirm-pass" 
             />
+            <FaEyeSlash className='show-pass-icon'/>
           </div>
           <input className='submit-button' type="submit" value="Cadastrar" />
         </form>

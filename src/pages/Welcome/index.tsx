@@ -16,7 +16,7 @@ function Welcome() {
             Vem com a gente!
           </p>
           <div className="buttons">
-            <Button to=''>Já tenho conta</Button>
+            <Button to='/login'>Já tenho conta</Button>
             <Button to='/cadastro'>Quero me cadastrar</Button>
           </div>
 

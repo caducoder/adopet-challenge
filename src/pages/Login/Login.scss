@@ -1,12 +1,6 @@
 @import '../../assets/variables';
 
-.paws {
-  position: absolute;
-  top: 0; right: 0;
-  z-index: 9;
-}
-
-.register-container {
+.login-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,19 +9,15 @@
   color: #fff;
   text-align: center;
   background: url(../../assets/left-wave.svg) no-repeat left 400px;
+  min-height: 100vh;
 
-  .logo-register{
+  .logo-login {
     width: 60%;
-    margin-bottom: 20px;
   }
 
   .text {
+    margin: 20px 0;
     color: $blue;
-    padding: 0 20px;
-
-    p {
-      margin: 10px 0;
-    }
   }
 
   .form {
@@ -54,7 +44,7 @@
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
         margin-top: 5px;
       }
-
+      
       .show-pass-icon {
         position: absolute;
         right: 10px; bottom: 10px;
@@ -77,5 +67,14 @@
         background-color: #FF9D9E;
       }
     }
+  }
+}
+
+.forget-pass-link {
+  color: $red;
+  text-decoration: underline;
+
+  &:hover {
+    color: #FF9D9E;
   }
 }
