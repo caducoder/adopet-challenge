@@ -1,8 +1,12 @@
+import { BrowserRouter } from 'react-router-dom';
+import Rotas from './routes';
 
 function App() {
 
   return (
-    <h1>hello World!</h1>
+    <BrowserRouter>
+      <Rotas />
+    </BrowserRouter>
   )
 }
 
