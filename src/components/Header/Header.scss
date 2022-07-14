@@ -1,0 +1,14 @@
+.top-left-wave {
+  position: fixed;
+  z-index: -1;
+  top: 0; left: 0;
+}
+
+.main-header {
+  padding: 40px;
+  .nav{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+}
