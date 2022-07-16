@@ -10,7 +10,7 @@ function Register() {
       <img className='logo-register' src={LogoDark} alt="" />
       <div className="text">
         <p>Ainda não tem cadastro?</p>
-        <p>Ainda não tem cadastro?
+        <p>
           Então, antes de buscar seu melhor amigo, precisamos de alguns dados:
         </p>
       </div>

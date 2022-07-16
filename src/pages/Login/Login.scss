@@ -74,7 +74,7 @@
   color: $red;
   text-decoration: underline;
 
-  &:hover {
+  &:hover, &:visited {
     color: #FF9D9E;
   }
 }
