@@ -5,7 +5,7 @@ export const pets = [
     age: '2 anos',
     description: 'Porte pequeno Calmo e educado',
     location: 'Rio de Janeiro (RJ)',
-    photo: '../assets/pets/dunga.png'
+    photo: './src/assets/pets/dunga.png'
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const pets = [
     age: '3 meses',
     description: 'Porte pequeno Ativa e carinhosa',
     location: 'Nova Iguaçu (RJ)',
-    photo: '../assets/pets/felicia.png'
+    photo: './src/assets/pets/felicia.png'
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const pets = [
     age: '6 meses',
     description: 'Porte grande Ativo e educado',
     location: 'Duque de Caxias (RJ)',
-    photo: '../assets/pets/sirius.png'
+    photo: './src/assets/pets/sirius.png'
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const pets = [
     age: '3 anos',
     description: 'Porte pequeno Calma e carinhosa',
     location: 'São Gonçalo (RJ)',
-    photo: '../assets/pets/fiona.png'
+    photo: './src/assets/pets/fiona.png'
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const pets = [
     age: '8 meses',
     description: 'Porte médio/grande Brincalhão e amável',
     location: 'Rio de Janeiro (RJ)',
-    photo: '../assets/pets/sid.png'
+    photo: './src/assets/pets/sid.png'
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const pets = [
     age: '1 ano',
     description: 'Porte médio Ativo e carinhoso',
     location: 'Nova Iguaçu (RJ)',
-    photo: '../assets/pets/yoda.png'
+    photo: './src/assets/pets/yoda.png'
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export const pets = [
     age: '6 meses',
     description: 'Porte médio Ativa e carinhosa',
     location: 'Duque de Caxias (RJ)',
-    photo: '../assets/pets/lua.png'
+    photo: './src/assets/pets/lua.png'
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export const pets = [
     age: '45 dias',
     description: 'Porte grande Calma e carinhosa',
     location: 'São Gonçalo (RJ)',
-    photo: '../assets/pets/amora.png'
+    photo: './src/assets/pets/amora.png'
   },
   {
     id: 9,
@@ -69,6 +69,6 @@ export const pets = [
     age: '5 meses',
     description: 'Porte médio Ativa e amável',
     location: 'Rio de Janeiro (RJ)',
-    photo: '../assets/pets/zelda.png'
+    photo: './src/assets/pets/zelda.png'
   },
 ]

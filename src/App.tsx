@@ -4,9 +4,7 @@ import Header from './components/Header';
 import Rotas from './routes';
 
 function App() {
-
   return (
-
     <BrowserRouter>
       <Header />
       <main>
@@ -14,7 +12,6 @@ function App() {
       </main>
       <Footer />
     </BrowserRouter>
-
   )
 }
 

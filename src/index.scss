@@ -10,7 +10,7 @@
 
 body{
   min-height: 100vh;
-  background-color: $background;
+  background-color: #fff;
 }
 
 footer {
@@ -22,9 +22,11 @@ footer {
   color: #fff;
   font-weight: 400;
   z-index: 99;
+  a {
+    color: #fff;
+  }
 }
 
 a, a:hover, a:visited {
-  color: #fff;
   text-decoration: none;
 }

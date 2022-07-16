@@ -2,6 +2,7 @@ import LogoDark from '../../assets/logo-dark.svg'
 import Paws from '../../assets/paws.svg'
 import {FaEyeSlash} from 'react-icons/fa'
 import './Login.scss'
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
@@ -14,7 +15,7 @@ function Login() {
       </div>
 
       <div>
-        <form className='form' action="">
+        <form className='form' onSubmit={(e) => e.preventDefault()}>
           <div className='field'>
             <label htmlFor="email">Email</label>
             <input
@@ -33,8 +34,9 @@ function Login() {
             <FaEyeSlash className='show-pass-icon'/>
           </div>
           <a href="#" className='forget-pass-link'>Esqueci minha senha</a>
-
-          <input className='submit-button' type="submit" value="Entrar" />
+          <Link to='/pets'>
+            <input className='submit-button' type="submit" value="Entrar" />
+          </Link>
         </form>
       </div>
     </div>

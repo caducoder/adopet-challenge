@@ -1,0 +1,48 @@
+@use '../../assets/variables' as *;
+
+.pet-card {
+  color: black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: $background;
+  gap: 16px;
+
+  .info {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .pet-name {
+      color: $blue;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .pet-age, .pet-description, .location {
+      color: $grey;     
+    }
+
+    .pet-age, .pet-description {
+      font-size: 14px;
+    }
+
+    .location {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .link-send-msg {
+      display: flex;
+      gap: 7px;
+      color: $grey;
+      font-size: 10px;
+      transition: all .2s;
+      
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+}
