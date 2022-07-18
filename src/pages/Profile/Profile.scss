@@ -1,28 +1,59 @@
 @use '../../assets/variables' as *;
 
-.message-container {
+.profile-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 45% 0 16px;
+  padding: 45% 24px 16px;
   text-align: center;
 
   .text {
     color: $blue;
-    width: 226px;
+    width: 250px;
     margin: 10px 0 24px;
   }
 
   .form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: $background;
     padding: 20px;
     border-radius: 10px;
     text-align: left;
-    width: 100%;
+
+    .form-title {
+      font-size: 21px;
+      font-weight: 600;
+      color: $grey;
+      align-self: center;
+    }
+
+    .pic-label, .pic-wrapper {
+      width: 80px;
+      height: 80px;
+      align-self: center;
+    }
+
+    #profile-pic {
+      display: none;
+    }
+
+    .pic-wrapper {
+      position: relative;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      overflow: hidden;
+      background: url(../../assets/user-example.png) no-repeat center;
+    }
+
+    .pic-edit-info {
+      font-weight: 400;
+      font-size: 12px;
+      color: $red;
+      text-align: center;
+      margin-top: 10px;
+    }
 
     .field {
       position: relative;
@@ -46,7 +77,7 @@
 
       textarea {
         resize: none;
-        width: 270px;
+        width: 100%;
       }
     }
     .submit-button {
@@ -58,8 +89,9 @@
       font-weight: 600;
       border: none;
       cursor: pointer;
-      margin-top: 20px;
+      margin: 20px 0 32px;
       font-size: 1em;
+      align-self: center;
 
       &:hover{
         background-color: #FF9D9E;

@@ -19,7 +19,9 @@ function Header() {
           <img src={MessageIcon} alt="link para enviar mensagem" />
         </Link>
       </div>
-      <img className='user-icon' src={User} alt="ícone do usuário" />
+      <Link to='/perfil'>
+        <img className='user-icon' src={User} alt="ícone do usuário" />
+      </Link>
     </header>
   );
 }

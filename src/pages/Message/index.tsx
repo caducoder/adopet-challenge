@@ -1,4 +1,3 @@
-import Button from '../../components/Button';
 import './Message.scss'
 function Message() {
   return (
@@ -7,7 +6,7 @@ function Message() {
         Envie uma mensagem para a pessoa ou instituição que está cuidando do animal:
       </p>
       <div>
-        <form className='form' action="">
+        <form className='form' onSubmit={(e) => e.preventDefault()}>
           <div className='field'>
             <label htmlFor="name">Nome</label>
             <input
