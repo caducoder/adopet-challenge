@@ -1,7 +1,7 @@
 function Footer() {
     return ( 
         <footer>
-            <p>2022 - Desenvolvido por <a href="https://github.com/caducoder">@caducoder</a>.</p>
+            <p>2022 - Desenvolvido por <a href="https://github.com/caducoder" target='_blank'>@caducoder</a>.</p>
         </footer>
      );
 }
