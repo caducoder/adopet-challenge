@@ -10,7 +10,7 @@ function Profile() {
       <p className='text'>
         Esse é o perfil que aparece para responsáveis ou ONGs que recebem sua mensagem.
       </p>
-      <div>
+      <div className='form-container'>
         <form className='form' onSubmit={() => navigate('/pets')}>
           <h1 className='form-title'>Perfil</h1>
           <div className="field">

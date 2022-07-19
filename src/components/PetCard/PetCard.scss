@@ -46,3 +46,15 @@
     }
   }
 }
+
+@media only screen and (min-width: $medium-device) { 
+  .pet-card {
+    width: 344px;
+
+    .link-send-msg {
+      img {
+        width: 20px;
+      }
+    }
+  }
+}

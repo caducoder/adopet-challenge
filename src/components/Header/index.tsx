@@ -11,8 +11,8 @@ function Header() {
     <header className='main-header'>
       <img className='top-left-wave' src={TopLeftWave} alt="" />
       <div className='nav'>
-        <img className='nav-logo' src={Logo} alt="" />
-        <Link to='/'>
+        <img className='nav-logo' src={Logo} alt="logo da adopet" />
+        <Link to='/pets'>
           <img src={HomeIcon} alt="link para a homepage" />
         </Link>
         <Link to='/mensagem'>

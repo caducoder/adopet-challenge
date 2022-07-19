@@ -78,3 +78,64 @@
     color: #FF9D9E;
   }
 }
+
+@media only screen and (min-width: $medium-device) {
+  .paws {
+    height: 269px;
+    width: 12em;
+  }
+  
+  .login-container {
+    padding: 30% 0 80px;
+    background: url(../../assets/right-wave.svg) no-repeat right 200px/7em;
+    min-height: 100vh;
+
+    .logo-login {
+      width: 40%;
+    }
+
+    .form-container {
+      width: 350px;
+       
+      .form {
+        width: 100%;
+
+        .field {
+          width: 350px;
+
+          input {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+@media only screen and (min-width: $large-device) {
+  .login-container {
+    padding: 10% 0 80px;
+    background: url(../../assets/right-wave.svg) no-repeat right 200px/7em;
+    height: 150vh;
+
+    .logo-login {
+      width: 30%;
+    }
+
+    .form-container {
+      .form {
+        .field {
+          label {
+            font-weight: 600;
+          }
+
+          input {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    
+  }
+}

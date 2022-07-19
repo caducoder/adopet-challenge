@@ -79,3 +79,82 @@
     }
   }
 }
+
+@media only screen and (min-width: $medium-device) {
+  .paws {
+    height: 269px;
+    width: 12em;
+  }
+  
+  .register-container {
+    padding: 30% 0 80px;
+    color: #fff;
+    text-align: center;
+    background: url(../../assets/right-wave.svg) no-repeat right 200px/7em;
+    min-height: 100vh;
+
+    .logo-register {
+      width: 40%;
+    }
+
+    .text {
+      padding: 0 140px;
+    }
+
+    .form-container {
+      width: 350px;
+       
+      .form {
+        width: 100%;
+
+        .field {
+          width: 350px;
+
+          input {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+@media only screen and (min-width: $large-device) {
+  .register-container {
+    padding: 10% 0 80px;
+    color: #fff;
+    text-align: center;
+    background: url(../../assets/right-wave.svg) no-repeat right 200px/7em;
+    height: 150vh;
+
+    .logo-register {
+      width: 30%;
+    }
+
+    .text {
+      padding: 0 340px;
+    }
+
+    .form-container {
+      width: 350px;
+       
+      .form {
+        width: 100%;
+
+        .field {
+          width: 350px;
+
+          label {
+            font-weight: 600;
+          }
+
+          input {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    
+  }
+}

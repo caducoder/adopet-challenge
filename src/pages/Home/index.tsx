@@ -5,7 +5,9 @@ import './Home.scss'
 function Home() {
   return (
     <div className="home-container">
-      <p className='title'>Olá! Veja os amigos disponíveis para adoção!</p>
+      <p className='title'>
+        <span>Olá!</span> Veja os amigos disponíveis para adoção!
+      </p>
       <section className='pet-container'>
         {pets.map(pet => (
           <PetCard key={pet.id} {...pet}/>

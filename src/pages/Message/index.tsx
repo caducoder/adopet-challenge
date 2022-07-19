@@ -5,7 +5,7 @@ function Message() {
       <p className="text">
         Envie uma mensagem para a pessoa ou instituição que está cuidando do animal:
       </p>
-      <div>
+      <div className='form-container'>
         <form className='form' onSubmit={(e) => e.preventDefault()}>
           <div className='field'>
             <label htmlFor="name">Nome</label>
@@ -34,7 +34,7 @@ function Message() {
           <div className='field'>
             <label htmlFor="msg">Mensagem</label>
             <textarea
-              rows={4}
+              rows={6}
               cols={15}
               placeholder='Escreva usa mensagem'
               id="msg"

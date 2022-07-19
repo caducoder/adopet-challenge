@@ -14,7 +14,7 @@ function Login() {
         <p>Já tem conta? Faça seu login:</p>
       </div>
 
-      <div>
+      <div className='form-container'>
         <form className='form' onSubmit={(e) => e.preventDefault()}>
           <div className='field'>
             <label htmlFor="email">Email</label>

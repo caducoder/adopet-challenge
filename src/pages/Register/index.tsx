@@ -14,7 +14,7 @@ function Register() {
           Então, antes de buscar seu melhor amigo, precisamos de alguns dados:
         </p>
       </div>
-      <div>
+      <div className='form-container'>
         <form className='form' action="">
           <div className='field'>
             <label htmlFor="email">Email</label>

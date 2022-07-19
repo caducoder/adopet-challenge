@@ -67,3 +67,77 @@
     }
   }
 }
+
+@media only screen and (min-width: $medium-device) {
+  .paws {
+    height: 269px;
+    width: 12em;
+  }
+  
+  .message-container {
+    padding: 30% 0 80px;
+    color: #fff;
+    text-align: center;
+    background: url(../../assets/right-wave.svg) no-repeat right 200px/7em;
+    min-height: 100vh;
+
+    .text {
+      width: 524px;
+    }
+
+    .form-container {
+      width: 524px;
+       
+      .form {
+        width: 100%;
+
+        .field {
+          width: 100%;
+
+          input {
+            font-size: 14px;
+          }
+
+          textarea {
+            width: 100%;
+          }
+        }
+
+        .submit-button {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    
+  }
+}
+
+@media only screen and (min-width: $large-device) {
+  .message-container {
+    padding: 12% 0 80px;
+    color: #fff;
+    text-align: center;
+    background: url(../../assets/right-wave.svg) no-repeat right 200px/7em;
+
+    .form-container {
+      width: 550px;
+       
+      .form {
+        width: 100%;
+
+        .field {
+          width: 100%;
+
+          label {
+            font-weight: 600;
+          }
+
+          input {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    
+  }
+}

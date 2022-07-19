@@ -99,3 +99,32 @@
     }
   }
 }
+
+@media only screen and (min-width: $medium-device) {
+  .profile-container{
+    padding: 30% 0 32px;
+
+    .text {
+      width: 524px;
+    }
+
+    .form-container {
+      width: 524px;
+    }
+  }
+}
+
+@media only screen and (min-width: $large-device) {
+  .profile-container{
+    padding: 12% 0 32px;
+    background: url(../../assets/right-wave.svg) no-repeat right 200px/7em;
+
+    .text {
+      width: 552px;
+    }
+
+    .form-container {
+      width: 552px;
+    }
+  }
+}

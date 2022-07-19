@@ -22,3 +22,41 @@
     margin-top: 32px;
   }
 }
+
+@media only screen and (min-width: $medium-device) {
+  .home-container {
+    padding: 35% 32px 32px;
+
+    .title {
+      width: 420px;
+
+      span{
+        display: block;
+      }
+    }
+
+    .pet-container {
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 2;
+    }
+  }
+}
+
+@media only screen and (min-width: $large-device) {
+  .home-container {
+    padding: 15% 32px 32px;
+    background: url(../../assets/right-wave.svg) no-repeat right 200px/7em;
+
+    .title {
+      width: 420px;
+      font-size: 1.1em;
+
+      span{
+        display: inline;
+      }
+    }
+  }
+}
