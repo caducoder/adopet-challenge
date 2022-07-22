@@ -29,8 +29,12 @@
       display: flex;
       flex-direction: column;
       color: $blue;
-      font-weight: 600;
+      
       margin: 10px 0;
+
+      label {
+        font-weight: 600;
+      }
 
       input, textarea {
         border: none;

@@ -55,10 +55,17 @@
         margin-top: 5px;
       }
 
-      .show-pass-icon {
-        position: absolute;
-        right: 10px; bottom: 10px;
-        cursor: pointer;
+      .icon-relative {
+        position: relative;
+        width: fit-content;
+        align-self: center;
+
+        .show-pass-icon {
+          position: absolute;
+          display: flex;
+          right: 10px; bottom: 10px;
+          cursor: pointer;
+        }
       }
     }
 
@@ -74,7 +81,7 @@
       margin-top: 20px;
 
       &:hover{
-        background-color: #FF9D9E;
+        background-color: $light-red;
       }
     }
   }
