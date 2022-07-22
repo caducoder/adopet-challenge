@@ -2,6 +2,7 @@ import { useState } from 'react'
 import LogoDark from '../../assets/logo-dark.svg'
 import Paws from '../../assets/paws.svg'
 import { FaEyeSlash, FaEye } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import {
   Formik,
   Form,
@@ -10,6 +11,7 @@ import {
 } from 'formik'
 import * as Yup from 'yup';
 import './Register.scss'
+
 
 interface SignupFormValues {
   email: string,
@@ -28,10 +30,12 @@ const registerSchemaValidation = Yup.object().shape({
 })
 
 function Register() {
+  const navigate = useNavigate()
   const [showPass, setShowPass] = useState(false);
 
   const handleSignup = (values: SignupFormValues) => {
     console.log(values)
+    navigate('/pets')
   }
 
   return (

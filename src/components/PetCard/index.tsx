@@ -22,7 +22,7 @@ function PetCard(pet: IPet) {
         <p className='pet-age'>{pet.age}</p>
         <p className='pet-description'>{pet.description}</p>
         <p className='location'>{pet.location}</p>
-        <Link className='link-send-msg' to='/mensagem'>
+        <Link className='link-send-msg' to='/mensagem' state={pet.name}>
           <img src={SendMsg} alt="icon send mensage" />
           Falar com o responsável
         </Link>

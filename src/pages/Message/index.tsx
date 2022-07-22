@@ -7,6 +7,7 @@ import {
 } from 'formik'
 import * as Yup from 'yup';
 import './Message.scss'
+import { useLocation } from 'react-router-dom';
 
 interface MessageFormValues {
   nome: string,
@@ -24,6 +25,8 @@ const messageSchemaValidation = Yup.object().shape({
 })
 
 function Message() {
+  const { state: petName } = useLocation()
+  console.log(petName)
 
   const handleMessageSend = (values: MessageFormValues) => {
     console.log(values)
@@ -39,7 +42,7 @@ function Message() {
           initialValues={{
             nome: '',
             telefone: '',
-            'pet-name': '',
+            'pet-name': petName as string || '',
             mensagem: '',
           }}
           validationSchema={messageSchemaValidation}
