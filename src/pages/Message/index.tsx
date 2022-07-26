@@ -26,7 +26,6 @@ const messageSchemaValidation = Yup.object().shape({
 
 function Message() {
   const { state: petName } = useLocation()
-  console.log(petName)
 
   const handleMessageSend = (values: MessageFormValues) => {
     console.log(values)

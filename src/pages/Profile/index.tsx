@@ -6,8 +6,12 @@ import {
   ErrorMessage
 } from 'formik'
 import * as Yup from 'yup';
+import { useEffect, useState } from 'react';
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { useAuth } from '../../hooks/useAuth';
+import { storage } from '../../firebase';
+import { updateProfile, User } from 'firebase/auth';
 import './Profile.scss'
-import { useState } from 'react';
 
 const profileSchemaValidation = Yup.object().shape({
   nome: Yup.string().min(3, 'nome deve ter no mínimo 3 caracteres').required('nome é obrigatório'),
@@ -20,9 +24,25 @@ const profileSchemaValidation = Yup.object().shape({
 const DEFAULT_PROFILE_PIC = "https://blog.criteria.com.br/wp-content/uploads/2021/03/Deafult-Profile-Pitcher.png"
 
 function Profile() {
+  const { user } = useAuth()
   const navigate = useNavigate()
-  const [avatar, setAvatar] = useState(null);
+  const [avatar, setAvatar] = useState<File | null>(null);
   const [photoURL, setPhotoURL] = useState<string>(DEFAULT_PROFILE_PIC)
+
+  const uploadPhoto = async (file: File, user: User) => {
+    const fileRef = ref(storage, user.uid + '.png')
+
+    uploadBytes(fileRef, file)
+      .then(async () => {
+        const avatar = await getDownloadURL(fileRef)
+
+        updateProfile(user, {photoURL: avatar})
+        setPhotoURL(avatar)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   // função que lida com a seleção da foto de perfil
   const handleAvatarChange = (e: any) => {
@@ -41,7 +61,13 @@ function Profile() {
 
   const handleProfileSubmit = (values: any) => {
     console.log(values)
+    if(avatar)
+      uploadPhoto(avatar, user as User)
   }
+
+  useEffect(() => {
+    if(user?.photoURL) setPhotoURL(user.photoURL)
+  }, []);
 
   return (
     <div className="profile-container">
@@ -52,7 +78,7 @@ function Profile() {
       <div className='form-container'>
         <Formik
           initialValues={{
-            nome: '',
+            nome: user?.displayName || '',
             telefone: '',
             cidade: '',
             sobre: '',

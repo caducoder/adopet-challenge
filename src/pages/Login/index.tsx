@@ -2,7 +2,7 @@ import { useState } from 'react';
 import LogoDark from '../../assets/logo-dark.svg'
 import Paws from '../../assets/paws.svg'
 import { FaEyeSlash, FaEye } from 'react-icons/fa'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Formik,
   Form,
@@ -11,6 +11,7 @@ import {
 } from 'formik'
 import * as Yup from 'yup';
 import './Login.scss'
+import { useAuth } from '../../hooks/useAuth';
 
 const loginSchemaValidation = Yup.object().shape({
   email: Yup.string().email('email inválido').required('Insira seu email'),
@@ -18,10 +19,17 @@ const loginSchemaValidation = Yup.object().shape({
 })
 
 function Login() {
+  const { authenticate } = useAuth()
+  const navigate = useNavigate()
   const [showPass, setShowPass] = useState(false);
 
-  const handleLogin = (values: { email: string, senha: string }) => {
-    console.log(values)
+  const handleLogin = async (values: { email: string, senha: string }) => {
+    try {
+      await authenticate(values.email, values.senha)
+      navigate('/pets')
+    } catch (error) {
+      console.log("ERRO: " + error)
+    }
   }
 
   return (

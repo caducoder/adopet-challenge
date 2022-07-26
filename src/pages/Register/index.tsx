@@ -11,6 +11,7 @@ import {
 } from 'formik'
 import * as Yup from 'yup';
 import './Register.scss'
+import { useAuth } from '../../hooks/useAuth'
 
 
 interface SignupFormValues {
@@ -30,12 +31,18 @@ const registerSchemaValidation = Yup.object().shape({
 })
 
 function Register() {
+  const { register } = useAuth()
   const navigate = useNavigate()
   const [showPass, setShowPass] = useState(false);
 
-  const handleSignup = (values: SignupFormValues) => {
-    console.log(values)
-    navigate('/pets')
+  const handleSignup = async (values: SignupFormValues) => {
+    try {
+      await register(values.email, values.senha, values.nome)
+      navigate('/pets')
+    } catch (error: any) {
+      console.log("ERRO: " + error)
+    }
+    
   }
 
   return (
