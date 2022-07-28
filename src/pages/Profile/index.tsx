@@ -55,6 +55,7 @@ function Profile() {
       })
       .catch(err => {
         console.log(err)
+        toast.error('Erro ao fazer upload da imagem de perfil.')
         return null
       })
 

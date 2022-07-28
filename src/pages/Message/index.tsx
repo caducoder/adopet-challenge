@@ -8,27 +8,50 @@ import {
 import * as Yup from 'yup';
 import './Message.scss'
 import { useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../../firebase';
+import { useAuth } from '../../hooks/useAuth';
 
 interface MessageFormValues {
   nome: string,
   telefone: string,
-  'pet-name': string,
+  petName: string,
   mensagem?: string
 }
 
 const messageSchemaValidation = Yup.object().shape({
-  nome: Yup.string().min(3, 'nome deve ter no mínimo 3 caracteres').required('nome é obrigatório'),
+  nome: Yup.string().min(3, 'O nome deve ter no mínimo 3 caracteres').required('Seu nome é obrigatório'),
   telefone: Yup.string()
-    .matches(/^[0-9- ()]+$/g, 'número inválido'),
-  'pet-name': Yup.string().required('nome do animal deve ser informado'),
-  mensagem: Yup.string()
+    .matches(/^[0-9- ()]+$/g, 'Número inválido'),
+  petName: Yup.string().required('O nome do animal deve ser informado'),
+  mensagem: Yup.string().required('Envie uma mensagem para nós!')
 })
 
 function Message() {
+  const { user } = useAuth()
   const { state: petName } = useLocation()
+  const [isLoading, setIsLoading] = useState(false);
+  const messageCollectionRef = collection(db, 'messages')
 
-  const handleMessageSend = (values: MessageFormValues) => {
-    console.log(values)
+  const handleMessageSend = async (values: MessageFormValues, {resetForm}: any) => {
+    setIsLoading(true)
+    try {
+      await addDoc(messageCollectionRef, {
+        userId: user?.uid,
+        nome: values.nome,
+        telefone: values.telefone,
+        petName: values.petName,
+        mensagem: values.mensagem
+      })
+
+      toast.success('Mensagem enviada com sucesso. Obrigado!')
+      resetForm()
+    } catch (error) {
+      toast.error('Erro ao enviar mensagem. Por favor, tente novamente mais tarde.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -39,9 +62,9 @@ function Message() {
       <div className='form-container'>
         <Formik
           initialValues={{
-            nome: '',
+            nome: user?.displayName ||'',
             telefone: '',
-            'pet-name': petName as string || '',
+            petName: petName as string || '',
             mensagem: '',
           }}
           validationSchema={messageSchemaValidation}
@@ -77,15 +100,15 @@ function Message() {
                 />
               </div>
               <div className='field'>
-                <label htmlFor="pet-name">Nome do animal</label>
+                <label htmlFor="petName">Nome do animal</label>
                 <Field
                   type="text"
-                  name='pet-name'
+                  name='petName'
                   placeholder='Por qual animal você se interessou?'
-                  id="pet-name"
+                  id="petName"
                 />
                 <ErrorMessage
-                  name='pet-name'
+                  name='petName'
                   render={errMsg => <div className='erro'>{errMsg}</div>}
                 />
               </div>
@@ -104,7 +127,11 @@ function Message() {
                   render={errMsg => <div className='erro'>{errMsg}</div>}
                 />
               </div>
-              <input className='submit-button' type="submit" value="Enviar" />
+              <div className="field-submit">
+                {isLoading ? <span className='loader' />
+                  : <input className='submit-button' type="submit" value="Enviar" />
+                }
+              </div>
             </Form>
           )}
         </Formik>

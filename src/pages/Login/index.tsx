@@ -31,7 +31,6 @@ function Login() {
       await authenticate(values.email, values.senha)
       navigate('/pets')
     } catch (error) {
-      console.log("ERRO: " + error)
       toast.error(`Usuário não encontrado`)
     } finally {
       setIsLoading(false)
