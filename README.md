@@ -10,16 +10,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="#">
     <img src="./src/assets/logo-light.svg" alt="Logo" width="400" height="100">
   </a>
 
 <h3 align="center">Adopet</h3>
 
   <p align="center">
-    Website para adoção de animais.
+    Website para adoção de animais de estimação.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Clique aqui para ver o projeto!</strong></a>
+    <a href="https://adopet-challenge.vercel.app/"><strong>Clique aqui para ver o projeto!</strong></a>
     <br />
   </p>
 </div>
@@ -103,9 +103,9 @@ Se você tem uma sugestão para melhorar o projeto, fork o repositório e crie u
 <!-- CONTACT -->
 ## :speech_balloon: Contato
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Twiter - [@Carlosxti](https://twitter.com/Carlosxti)
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Linkedin - [Carlos Silva](https://www.linkedin.com/in/carloseduardodev/)
 
 
 <!-- ACKNOWLEDGMENTS -->
@@ -126,7 +126,6 @@ Pacotes e plugins que me ajudaram bastante. Aqui estão meus favoritos:
 [![Built-with]][Badge-url]
 
 </div>
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
