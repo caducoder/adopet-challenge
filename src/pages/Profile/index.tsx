@@ -12,6 +12,7 @@ import { storage, db } from '../../firebase';
 import { updateProfile, User } from 'firebase/auth';
 import './Profile.scss'
 import { addDoc, collection, doc, query, where, getDocs, updateDoc } from 'firebase/firestore';
+import { toast } from 'react-toastify';
 
 interface UserProfileValues {
   nome: string,
@@ -38,6 +39,7 @@ const DEFAULT_PROFILE_PIC = "https://blog.criteria.com.br/wp-content/uploads/202
 
 function Profile() {
   const { user } = useAuth()
+  const [isLoading, setIsLoading] = useState(false);
   const [avatar, setAvatar] = useState<File | null>(null);
   const [photoURL, setPhotoURL] = useState<string>(DEFAULT_PROFILE_PIC)
   const [userData, setUserData] = useState<UserProfileValues | null>(null);
@@ -75,6 +77,7 @@ function Profile() {
   }
 
   const handleProfileSubmit = async (values: UserProfileValues) => {
+    setIsLoading(true)
     let newUserAvatar = null;
     if(avatar){
       newUserAvatar = await uploadPhoto(avatar, user as User)
@@ -93,6 +96,7 @@ function Profile() {
         sobre: values.sobre
       })
       console.log("Usuário criado com sucesso!")
+      setIsLoading(false)
       return; // pra sair da função
     }
 
@@ -101,6 +105,9 @@ function Profile() {
 
     await updateDoc(userDoc, {...values})
 
+    toast.success('Informações atualizadas com sucesso.')
+
+    setIsLoading(false)
     console.log("Informações do usuário atualizadas com sucesso!")
   }
 
@@ -220,7 +227,12 @@ function Profile() {
                   render={errMsg => <div className='erro'>{errMsg}</div>}
                 />
               </div>
-              <input className='submit-button' type="submit" value="Salvar" />
+              <input 
+                className='submit-button' 
+                type="submit" 
+                value="Salvar" 
+                disabled={isLoading}
+              />
             </Form>
           )}
         </Formik>
