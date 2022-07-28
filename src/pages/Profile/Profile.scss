@@ -101,6 +101,11 @@
       }
     }
 
+    .field-submit {
+      text-align: center;
+      margin: 20px 0 32px;
+    }
+
     .submit-button {
       width: 148px;
       padding: 10px 15px;
@@ -110,7 +115,7 @@
       font-weight: 600;
       border: none;
       cursor: pointer;
-      margin: 20px 0 32px;
+      
       font-size: 1em;
       align-self: center;
 

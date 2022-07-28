@@ -12,6 +12,7 @@ import {
 import * as Yup from 'yup';
 import './Login.scss'
 import { useAuth } from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const loginSchemaValidation = Yup.object().shape({
   email: Yup.string().email('email inválido').required('Insira seu email'),
@@ -20,22 +21,29 @@ const loginSchemaValidation = Yup.object().shape({
 
 function Login() {
   const { authenticate } = useAuth()
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate()
   const [showPass, setShowPass] = useState(false);
 
   const handleLogin = async (values: { email: string, senha: string }) => {
+    setIsLoading(true)
     try {
       await authenticate(values.email, values.senha)
       navigate('/pets')
     } catch (error) {
       console.log("ERRO: " + error)
+      toast.error(`Usuário não encontrado`)
+    } finally {
+      setIsLoading(false)
     }
   }
 
   return (
     <div className="login-container">
       <img className='paws' src={Paws} alt="" />
-      <img className='logo-login' src={LogoDark} alt="" />
+      <Link to='/'>
+        <img className='logo-login' src={LogoDark} alt="" />
+      </Link>
 
       <div className="text">
         <p>Já tem conta? Faça seu login:</p>
@@ -91,7 +99,10 @@ function Login() {
               <Link to='#' className='forget-pass-link'>
                 Esqueci minha senha
               </Link>
-              <input className='submit-button' type="submit" value="Entrar" />
+              <div className="field-submit">
+                {isLoading ? <span className="loader"></span> : <input className='submit-button' type="submit" value="Entrar" />}
+              </div>
+              
             </Form>
           )}
         </Formik>

@@ -12,6 +12,7 @@ import {
 import * as Yup from 'yup';
 import './Register.scss'
 import { useAuth } from '../../hooks/useAuth'
+import { toast } from 'react-toastify'
 
 
 interface SignupFormValues {
@@ -32,17 +33,22 @@ const registerSchemaValidation = Yup.object().shape({
 
 function Register() {
   const { register } = useAuth()
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate()
   const [showPass, setShowPass] = useState(false);
 
   const handleSignup = async (values: SignupFormValues) => {
+    setIsLoading(true)
     try {
       await register(values.email, values.senha, values.nome)
+      toast.success('Conta criada com sucesso.')
       navigate('/pets')
     } catch (error: any) {
       console.log("ERRO: " + error)
+      toast.error('Erro ao criar conta. Por favor, tente novamente mais tarde.')
+    } finally {
+      setIsLoading(false)
     }
-    
   }
 
   return (
@@ -137,7 +143,11 @@ function Register() {
                   render={errMsg => <div className='erro'>{errMsg}</div>}
                 />
               </div>
-              <input className='submit-button' type="submit" value="Cadastrar" />
+              <div className="field-submit">
+                {isLoading ? <span className='loader' />
+                  :  <input className='submit-button' type="submit" value="Cadastrar" />
+                }
+              </div>
             </Form>
           )}
         </Formik>

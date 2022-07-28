@@ -65,7 +65,7 @@ function Profile() {
   const handleAvatarChange = (e: any) => {
     let reader = new FileReader();
 
-    if(e.target.files[0]) {
+    if (e.target.files[0]) {
       setAvatar(e.target.files[0])
 
       reader.onload = () => {
@@ -79,23 +79,24 @@ function Profile() {
   const handleProfileSubmit = async (values: UserProfileValues) => {
     setIsLoading(true)
     let newUserAvatar = null;
-    if(avatar){
+    if (avatar) {
       newUserAvatar = await uploadPhoto(avatar, user as User)
       setPhotoURL(newUserAvatar as string)
     }
 
-    updateProfile(user as User, {displayName: values.nome, photoURL: newUserAvatar})
-    
+    updateProfile(user as User, { displayName: values.nome, photoURL: newUserAvatar })
+
     // caso seja a primeira vez preenchendo o perfil
-    if(!docId) {
+    if (!docId) {
       await addDoc(usersInfoCollectionRef, {
-        userId: user?.uid, 
+        userId: user?.uid,
         nome: values.nome,
         telefone: values.telefone || '',
         cidade: values.cidade,
         sobre: values.sobre
       })
-      console.log("Usuário criado com sucesso!")
+  
+      toast.success('Informações atualizadas com sucesso.')
       setIsLoading(false)
       return; // pra sair da função
     }
@@ -103,16 +104,15 @@ function Profile() {
     //se estiver alterando o perfil, chama a função para atualizar no db
     const userDoc = doc(db, "usersInfo", docId)
 
-    await updateDoc(userDoc, {...values})
+    await updateDoc(userDoc, { ...values })
 
     toast.success('Informações atualizadas com sucesso.')
 
     setIsLoading(false)
-    console.log("Informações do usuário atualizadas com sucesso!")
   }
 
   useEffect(() => {
-    if(user?.photoURL) setPhotoURL(user.photoURL)
+    if (user?.photoURL) setPhotoURL(user.photoURL)
 
     // função que busca os dados do usuário no firebase
     const getUserDataFromFirebase = async () => {
@@ -213,7 +213,7 @@ function Profile() {
               </div>
               <div className='field'>
                 <label htmlFor="sobre">Sobre</label>
-                <Field  
+                <Field
                   as='textarea'
                   rows={4}
                   cols={15}
@@ -227,12 +227,15 @@ function Profile() {
                   render={errMsg => <div className='erro'>{errMsg}</div>}
                 />
               </div>
-              <input 
-                className='submit-button' 
-                type="submit" 
-                value="Salvar" 
-                disabled={isLoading}
-              />
+              <div className='field-submit'>
+                {isLoading ? <span className="loader" />
+                  : <input
+                    className='submit-button'
+                    type="submit"
+                    value="Salvar"
+                  />
+                }
+              </div>
             </Form>
           )}
         </Formik>
