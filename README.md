@@ -57,7 +57,7 @@ Caso não tenha o npm instalado, use este comando:
 
 1. Clone o repositório
    ```bash
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/caducoder/adopet-challenge.git
    ```
 2. Instale os pacotes NPM
    ```bash
