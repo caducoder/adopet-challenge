@@ -105,6 +105,9 @@ function Login() {
             </Form>
           )}
         </Formik>
+        <p className='sign-up'>
+          Novo aqui? <Link to='/cadastro'>Cadastre-se</Link>
+        </p>
       </div>
     </div>
   );
